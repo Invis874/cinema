@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'movies/style/app.css' %}">
+    <title>Сinema</title>
+</head>
+<body>
+    <form method="post" action="../../..">
+        {% csrf_token %}
+        <h1 class="form-title">Ваши данные</h1>
+    <div class="form-group">
+        <input type="number" value="{{s}}" class="form-input" placeholder=" " name="hall" readonly>
+        <label for="" class="form-label">Зал</label>
+    </div>
+    <div class="form-group">
+        <input type="number" value="{{m}}" class="form-input" placeholder=" " name="place" readonly>
+        <label for="" class="form-label">Ваше место</label>
+    </div>
+    <div class="form-group">
+        <input type="email" class="form-input" placeholder=" " name="email">
+        <label style="padding-bottom: 10px;" for="" class="form-label">Email</label>
+        <br>
+        На эту электронную почту будут отправлены билеты
+    </div>
+    <script>
+        var reply_click = function()
+{
+    document.write(btn1);
+}
+
+
+    </script> <br>
+        <button class="form-btn">Купить билет</button>
+    </form>
+    <script src="{% static 'movies/js/code.js' %}"></script>
+    <script src="{% static 'movies/js/zal.js' %}"></script>
+</body>
+</html>

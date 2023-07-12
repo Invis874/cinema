@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{% static 'movies/img/4202092logomovienetflixsocialsocialmediavideo-115596_115705 (1).png' %}">
+    <link rel="stylesheet" href="{% static 'movies/style/main.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Wix+Madefor+Display:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <title>Сinema</title>
+</head>
+<body>
+    <div class="slider">
+        <div class="slides">
+            <input type="radio" name="radio-btn" id="radio1">
+            <input type="radio" name="radio-btn" id="radio2">
+            <input type="radio" name="radio-btn" id="radio3">
+
+            <div class="block next" style="width: 100vw; height: 700px;">
+                <div class="film_one">
+                    <div class="text-one">
+                        <h1 class="type-film">Научная фантастика</h1>
+                        <img src="{% static 'movies/img/star.png' %}" alt="" class="star">
+                        <h1 class="name-film">Стражи Галактики. Часть 3</h1>
+                        <h1 class="film-text">Питер Квилл никак не может смириться с потерей Гаморы и теперь вместе со <br> Стражами Галактики вынужден отправиться на очередную <br> миссию по защите Вселенной.</h1>
+                        <button onclick="alert('В кино с 1 июля 2023 :D')" class="btn">Хочу сходить</button></a>
+                    </div>
+                </div>
+            </div>
+            <!--Карты-->
+            <div class="block2" style="width: 100vw; height: 700px; background-color: #DDDDDD;">
+                <div class="film_two">
+                    <div class="text-one">
+                        <h1 class="type-film">Боевик</h1>
+                        <img src="{% static 'movies/img/star.png' %}" alt="" class="star">
+                        <h1 class="name-film">Джон Уик 4 (2023)</h1>
+                        <h1 class="film-text">Оставляя за собой горы трупов, Джон Уик продолжает <br> скрываться от всевозможных наёмных убийц, и теперь охоту <br> на него возглавляет молодой и честолюбивый член Правления по имени Маркиз.</h1>
+                        <button onclick="alert('В кино с 1 июля 2023 :D')" class="btn">Хочу сходить</button>
+                    </div>
+                </div>
+            </div>
+            <!--ипотека-->
+            <div class="block3 " style="width: 100vw; height: 700px; background-color: #FCEDC8;">
+                <div class="film_three">
+                    <div class="text-one">
+                        <h1 class="type-film">Комедия</h1>
+                        <img src="{% static 'movies/img/star.png' %}" alt="" class="star">
+                        <h1 class="name-film">Мама мафия</h1>
+                        <h1 class="film-text">Героиня Моники Белуччи обучает домохозяйку руководить <br> криминальной империей</h1>
+                        <button onclick="alert('В кино с 1 июля 2023 :D')" class="btn">Хочу сходить</button>
+                    </div>
+                </div>
+            </div>
+           
+            <div class="navigation-auto">
+                <div class="auto-btn1"></div>
+                <div class="auto-btn2"></div>
+                <div class="auto-btn3"></div>
+            </div>
+        </div>
+        
+        <div class="navig-manual">
+            <label for="radio1" class="manual-btn1"></label>
+            <label for="radio2" class="manual-btn1"></label>
+            <label for="radio3" class="manual-btn1"></label>
+        </div>
+    </div>
+    <div class="new_releases">
+        <div class="new-block">
+            <a style="text-decoration: none; color: white;" href="#film-one"><div class="block-text">Новые выпуски &#11166;</div></a>
+        </div>
+        <div id="film-one" class="films-block">
+            <div class="film-1 film">
+                <div class="film-button">
+                    <button id="btn" class="btn-1 button">Купить билет</button>
+                    <div class="modal-okno" id="modal-okno">
+                        <div class="modal-container">
+                            <div class="modal-content">
+                                <div class="header-films">
+                                   <div class="texx">Нападение помидоров убийц * 2D * 12+ <br> Сегодня в 11:00  Зал 1 <br> 49 мест</div>
+                                </div>
+                                <div class="header-film">
+                                    <img src="{% static 'movies/img/Line 1.png' %}" alt="" class="line">
+                                    Экран
+                                </div>
+                                <div class="mesta">
+                                    <div class="rad-1">
+                                        {% for i in x %}
+                                            {% if i in tickets8 %}
+                                                <button style="background-color: red;" class="name_1 name">{{i}}</button>
+                                            {% else %}
+                                                <button onclick="document.location='{% url 'movies:reservation' 8 i %}'" class="name_1 name">{{i}}</button>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </div> <br>
+                                    <div class="rad-1">
+                                        {% for i in x1 %}
+                                            {% if i in tickets8 %}
+                                                <button style="background-color: red;" class="name_1 name">{{i}}</button>
+                                            {% else %}
+                                                <button onclick="document.location='{% url 'movies:reservation' 8 i %}'" class="name_1 name">{{i}}</button>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </div> <br>
+                                    <div class="rad-1">
+                                        {% for i in x2 %}
+                                            {% if i in tickets8 %}
+                                                <button style="background-color: red;" class="name_1 name">{{i}}</button>
+                                            {% else %}
+                                                <button onclick="document.location='{% url 'movies:reservation' 8 i %}'" class="name_1 name">{{i}}</button>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </div> <br>
+                                    <div class="rad-2">
+                                        {% for i in x3 %}
+                                            {% if i in tickets8 %}
+                                                <button style="background-color: red;" class="name_1 name">{{i}}</button>
+                                            {% else %}
+                                                <button onclick="document.location='{% url 'movies:reservation' 8 i %}'" class="name_1 name">{{i}}</button>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </div> <br>
+                                    <div class="rad-2">
+                                        {% for i in x4 %}
+                                            {% if i in tickets8 %}
+                                                <button style="background-color: red;" class="name_1 name">{{i}}</button>
+                                            {% else %}
+                                                <button onclick="document.location='{% url 'movies:reservation' 8 i %}'" class="name_1 name">{{i}}</button>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </div> <br>
+                                    <div style="margin-left: 50px;">
+                                        Режиссер: Джон Де Белло <span style="float: right; white-space: nowrap; margin-right: 50px;">Цена: 200р.</span><br>
+                                        Продолжительность фильма: 1 час 27 минут
+                                    </div>
+                                </div>
+                                <div id="close" class="close">&#10006</div>
+                            </div>
+                        </div>
+                    </div>
+             </div>
+        </div>
+            <div class="film-2 film">
+                <div class="film-button">
+                    <button id="btn1" class="btn-2 button">Купить билет</button>
+                    <div class="modal-okno" id="modal-okno1">
+                        <div class="modal-container">
+                            <div class="modal-content">
+                                <div class="header-films">
+                                    <span class="texx">Остров сокровищ * 2D * 12+<br>Сегодня в 18:00  Зал 1<br> 49 мест</span>
+                                 </div>
+                                 <div class="header-film">
+                                     <img src="{% static 'movies/img/Line 1.png' %}" alt="" class="line">
+                                     Экран
+                                 </div>
+ 
+                                 <div class="mesta">
+                                     <div class="rad-1">
+                                        {% for i in x %}
+                                            {% if i in tickets1 %}
+                                                <button style="background-color: red;" class="name_1 name">{{i}}</button>
+                                            {% else %}
+                                                <button onclick="document.location='{% url 'movies:reservation' 1 i %}'" class="name_1 name">{{i}}</button>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </div> <br>
+                                    <div class="rad-1">
+                                        {% for i in x1 %}
+                                            {% if i in tickets1 %}
+                                                <button style="background-color: red;" class="name_1 name">{{i}}</button>
+                                            {% else %}
+                                                <button onclick="document.location='{% url 'movies:reservation' 1 i %}'" class="name_1 name">{{i}}</button>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </div> <br>
+                                    <div class="rad-1">
+                                        {% for i in x2 %}
+                                            {% if i in tickets1 %}
+                                                <button style="background-color: red;" class="name_1 name">{{i}}</button>
+                                            {% else %}
+                                                <button onclick="document.location='{% url 'movies:reservation' 1 i %}'" class="name_1 name">{{i}}</button>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </div> <br>
+                                    <div class="rad-2">
+                                        {% for i in x3 %}
+                                            {% if i in tickets1 %}
+                                                <button style="background-color: red;" class="name_1 name">{{i}}</button>
+                                            {% else %}
+                                                <button onclick="document.location='{% url 'movies:reservation' 1 i %}'" class="name_1 name">{{i}}</button>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </div> <br>
+                                    <div class="rad-2">
+                                        {% for i in x4 %}
+                                            {% if i in tickets1 %}
+                                                <button style="background-color: red;" class="name_1 name">{{i}}</button>
+                                            {% else %}
+                                                <button onclick="document.location='{% url 'movies:reservation' 1 i %}'" class="name_1 name">{{i}}</button>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </div> <br>
+                                    <div style="margin-left: 50px;">
+                                        Режиссер: Давид Черкасский <span style="float: right; white-space: nowrap; margin-right: 50px;">Цена: 300р.</span><br>
+                                        Продолжительность фильма: 1 час 47 минут
+                                    </div>
+                                 </div>
+                                <div id="close1" class="close">&#10006</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="film-3 film">
+                <div class="film-button">
+                    <button id="btn2" class="btn-3 button">Купить билет</button>
+                    <div class="modal-okno" id="modal-okno2">
+                        <div class="modal-container">
+                            <div class="modal-content">
+                                <div class="header-films">
+                                    <span class="texx">Не грози Южному централу, попивая сок у себя в квартале * 2D * 12+<br>Сегодня в 13:00  Зал 2<br> 27 мест</span>
+                                 </div>
+                                 <div class="header-film">
+                                     <img src="{% static 'movies/img/Line 1.png' %}" alt="" class="line">
+                                     Экран
+                                 </div>
+ 
+                                 <div class="mesta">
+                                     <div class="rad-1">
+                                        {% for i in x %}
+                                            {% if i in tickets7 %}
+                                                <button style="background-color: red;" class="name_1 name">{{i}}</button>
+                                            {% else %}
+                                                <button onclick="document.location='{% url 'movies:reservation' 7 i %}'" class="name_1 name">{{i}}</button>
+                                            {% endif %}
+                                        {% endfor %}
+                                     </div> <br>
+                                     <div class="rad-1">
+                                        {% for i in x1 %}
+                                            {% if i in tickets7 %}
+                                                <button style="background-color: red;" class="name_1 name">{{i}}</button>
+                                            {% else %}
+                                                <button onclick="document.location='{% url 'movies:reservation' 7 i %}'" class="name_1 name">{{i}}</button>
+                                            {% endif %}
+                                        {% endfor %}
+                                     </div> <br>
+                                     <div class="rad-1">
+                                        {% for i in x2 %}
+                                            {% if i in tickets7 %}
+                                                <button style="background-color: red;" class="name_1 name">{{i}}</button>
+                                            {% else %}
+                                                <button onclick="document.location='{% url 'movies:reservation' 7 i %}'" class="name_1 name">{{i}}</button>
+                                            {% endif %}
+                                        {% endfor %}
+                                     </div> <br>
+                                     <div style="margin-left: 50px;">
+                                        Режиссер: Пэрис Барклай <span style="float: right; white-space: nowrap; margin-right: 50px;">Цена: 200р.</span><br>
+                                        Продолжительность фильма: 1 час 34 минут
+                                    </div>
+                                 </div>
+                                <div id="close2" class="close">&#10006</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="film-4 film">
+                <div class="film-button">
+                    <button id="btn3" class="btn-4 button">Купить билет</button>
+                    <div class="modal-okno" id="modal-okno3">
+                        <div class="modal-container">
+                            <div class="modal-content">
+                                <div class="header-films">
+                                    <span class="texx">Зелёный слоник * 2D * 16+<br> Сегодня в 20:00  Зал 2 <br> 49 мест</span>
+                                 </div>
+                                 <div class="header-film">
+                                     <img src="{% static 'movies/img/Line 1.png' %}" alt="" class="line">
+                                     Экран
+                                 </div>
+ 
+                                 <div class="mesta">
+                                     <div class="rad-1">
+                                        {% for i in x %}
+                                            {% if i in tickets2 %}
+                                                <button style="background-color: red;" class="name_1 name">{{i}}</button>
+                                            {% else %}
+                                                <button onclick="document.location='{% url 'movies:reservation' 2 i %}'" class="name_1 name">{{i}}</button>
+                                            {% endif %}
+                                        {% endfor %}
+                                     </div> <br>
+                                     <div class="rad-1">
+                                        {% for i in x1 %}
+                                            {% if i in tickets2 %}
+                                                <button style="background-color: red;" class="name_1 name">{{i}}</button>
+                                            {% else %}
+                                                <button onclick="document.location='{% url 'movies:reservation' 2 i %}'" class="name_1 name">{{i}}</button>
+                                            {% endif %}
+                                        {% endfor %}
+                                     </div> <br>
+                                     <div class="rad-1">
+                                        {% for i in x2 %}
+                                            {% if i in tickets2 %}
+                                                <button style="background-color: red;" class="name_1 name">{{i}}</button>
+                                            {% else %}
+                                                <button onclick="document.location='{% url 'movies:reservation' 2 i %}'" class="name_1 name">{{i}}</button>
+                                            {% endif %}
+                                        {% endfor %}
+                                     </div> <br>
+                                     <div style="margin-left: 50px;">
+                                        Режиссер: Светлана Баскова <span style="float: right; white-space: nowrap; margin-right: 50px;">Цена: 200р.</span><br>
+                                        Продолжительность фильма: 1 час 26 минут
+                                    </div>
+                                 </div>
+                                <div id="close3" class="close">&#10006</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="film-5 film">
+                <div class="film-button">
+                    <button id="btn4" class="btn-5 button">Купить билет</button>
+                    <div class="modal-okno" id="modal-okno4">
+                        <div class="modal-container">
+                            <div class="modal-content">
+                                <div class="header-films">
+                                    <span class="texx">Братья Супер Марио в кино * 2D * 6+<br> Завтра, 25 мая в 12:10  Зал 8 <br> 49 мест</span>
+                                 </div>
+                                 <div class="header-film">
+                                     <img src="{% static 'movies/img/Line 1.png' %}" alt="" class="line">
+                                     Экран
+                                 </div>
+ 
+                                 <div class="mesta">
+                                     <div class="rad-1">
+                                         <button class="name_1 name">1</button>
+                                         <button class="name_1 name">2</button>
+                                         <button class="name_1 name">3</button>
+                                         <button class="name_1 name">4</button>
+                                         <button class="name_1 name">5</button>
+                                         <button class="name_1 name">6</button>
+                                         <button class="name_1 name">7</button>
+                                         <button class="name_1 name">8</button>
+                                         <button class="name_1 name">9</button>
+                                     </div> <br>
+                                     <div class="rad-1">
+                                         <button class="name_1 name">10</button>
+                                         <button class="name_1 name">11</button>
+                                         <button class="name_1 name">12</button>
+                                         <button class="name_1 name">13</button>
+                                         <button class="name_1 name">14</button>
+                                         <button class="name_1 name">15</button>
+                                         <button class="name_1 name">16</button>
+                                         <button class="name_1 name">17</button>
+                                         <button class="name_1 name">18</button>
+                                     </div> <br>
+                                     <div class="rad-1">
+                                         <button class="name_1 name">19</button>
+                                         <button class="name_1 name">20</button>
+                                         <button class="name_1 name">21</button>
+                                         <button class="name_1 name">22</button>
+                                         <button class="name_1 name">23</button>
+                                         <button class="name_1 name">24</button>
+                                         <button class="name_1 name">25</button>
+                                         <button class="name_1 name">26</button>
+                                         <button class="name_1 name">27</button>
+                                     </div> <br>
+                                     <div class="rad-2">
+                                         <button class="name_1 name">28</button>
+                                         <button class="name_1 name">29</button>
+                                         <button class="name_1 name">30</button>
+                                         <button class="name_1 name">31</button>
+                                         <button class="name_1 name">32</button>
+                                         <button class="name_1 name">33</button>
+                                         <button class="name_1 name">34</button>
+                                         <button class="name_1 name">35</button>
+                                         <button class="name_1 name">36</button>
+                                         <button class="name_1 name">37</button>
+                                         <button class="name_1 name">38</button>
+                                     </div> <br>
+                                     <div class="rad-2">
+                                         <button class="name_1 name">39</button>
+                                         <button class="name_1 name">40</button>
+                                         <button class="name_1 name">41</button>
+                                         <button class="name_1 name">42</button>
+                                         <button class="name_1 name">43</button>
+                                         <button class="name_1 name">44</button>
+                                         <button class="name_1 name">45</button>
+                                         <button class="name_1 name">46</button>
+                                         <button class="name_1 name">47</button>
+                                         <button class="name_1 name">48</button>
+                                         <button class="name_1 name">49</button>
+                                     </div> <br>
+                                 </div>
+                                <div id="close4" class="close">&#10006</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static 'movies/js/zal.js' %}"></script>
+    <script src="{% static 'movies/js/code.js' %}"></script>
+</body>
+</html>
